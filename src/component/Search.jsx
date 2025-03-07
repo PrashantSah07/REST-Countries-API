@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Search.module.css'
-import Region from './region'
+import Region from './Region'
 
 const Search = (props) => {
     return (
