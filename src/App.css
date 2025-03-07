@@ -1,0 +1,127 @@
+.filter {
+    margin-top: 40px;
+}
+
+.countryData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.loadingspinner {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-button {
+    border: none;
+    padding: 5px;
+    background-color: white;
+    width: 100px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    margin: 20px 0 10px 100px;
+}
+
+.back-button a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.back-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.countryCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin: 50px 0;
+}
+
+.countryCard img {
+    width: 600px;
+}
+
+.countryCard div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.errorPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+.errorPage h1 {
+    font-size: 24px;
+}
+
+.errorPage p {
+    padding: 16px 20px;
+    border: 0px solid rgba(255, 255, 255, 0.352);
+    border-left-width: 1px;
+    font-size: 15px;
+}
+
+@media only screen and (max-width:1420px) {
+    .countryCard {
+        flex-direction: column;
+        gap: 50px;
+        margin: 50px 0;
+    }
+
+    .countryCard img {
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width:900px) {
+    .filter {
+        flex-direction: column;
+    }
+
+    .countryCard img {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width:550px) {
+    .countryCard img {
+        width: 280px;
+    }
+}
+
+@media only screen and (max-width:330px) {
+    .errorPage {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .errorPage p {
+        border: none;
+        text-align: center;
+    }
+
+    .countryCard img {
+        width: 220px;
+    }
+}
