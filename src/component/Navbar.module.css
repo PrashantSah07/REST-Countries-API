@@ -3,6 +3,7 @@
     padding: 10px 50px;
     border-bottom-width: 1px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: white;
 }
 
 .navbar nav {
@@ -28,6 +29,10 @@
 
 .navbar svg {
     width: 25px;
+}
+
+.dark {
+    background-color: #111121;
 }
 
 @media only screen and (max-width:600px) {
