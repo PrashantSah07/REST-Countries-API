@@ -88,6 +88,34 @@ header {
     font-size: 15px;
 }
 
+
+.borders {
+    display: flex;
+    flex-direction: row !important;
+    font-weight: 700;
+}
+
+.borders div {
+    display: flex !important;
+    flex-direction: row;
+    width: fit-content;
+    flex-wrap: wrap;
+}
+
+.borders span {
+    border: 2px solid rgba(0, 0, 0, 0.282);
+    padding: 2px 5px;
+    font-size: 14px;
+    border-radius: 10px;
+    width: fit-content;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.borders a{
+    text-decoration: none;
+}
+
 @media only screen and (max-width:1420px) {
     .countryCard {
         flex-direction: column;
@@ -106,13 +134,17 @@ header {
     }
 
     .countryCard img {
-        width: 400px;
+        width: 70%;
+    }
+
+    .card-details {
+        padding: 0 20px;
     }
 }
 
 @media only screen and (max-width:550px) {
     .countryCard img {
-        width: 280px;
+        width: 80%;
     }
 }
 
@@ -127,7 +159,4 @@ header {
         text-align: center;
     }
 
-    .countryCard img {
-        width: 220px;
-    }
 }

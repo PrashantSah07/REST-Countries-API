@@ -7,6 +7,7 @@ const CountryCard = () => {
     const [data, setData] = useState([]);
     const [Loading, setLoading] = useState(false);
     const [notFound, setNotFound] = useState(false);
+    const [borders, setBorders] = useState([]);
     // let country = new URLSearchParams(location.search).get('name');
     let { country } = useParams();
 
@@ -21,7 +22,17 @@ const CountryCard = () => {
                     return;
                 }
                 let res2 = await res.json();
-                setData(res2)
+                setData(res2);
+                setBorders([]);
+
+                res2.map(async function (country) {
+                    country.borders?.map(async function (border) {
+                        let a = await fetch(`https://restcountries.com/v3.1/alpha/${border}`);
+                        let a2 = await a.json();
+                        setBorders((prevState) => [...prevState, a2[0].name.common]);
+                    })
+
+                })
             }
             catch (error) {
                 console.log(error)
@@ -31,7 +42,8 @@ const CountryCard = () => {
         }
         getData();
 
-    }, [])
+    }, [country])
+
 
     return (
         <>
@@ -44,7 +56,7 @@ const CountryCard = () => {
             {data.map(function (e, key) {
                 return <div key={key} className='countryCard'>
                     <img src={e.flags.svg} alt={e.name.common} />
-                    <div>
+                    <div className='card-details'>
                         <h1>{e.name.common}</h1>
                         <p><b>Official:</b> {e.name.official}</p>
                         <p><b>Native Name:</b> {Object.values(e.name.nativeName)[0].common}</p>
@@ -54,6 +66,17 @@ const CountryCard = () => {
                         <p><b>Capital:</b> {e.capital}</p>
                         <p><b>Timezones:</b> {e.timezones}</p>
                         <p><b>Continent:</b> {e.continents}</p>
+                        <div className='borders'>Borders:
+                            <div>
+                                {borders.length > 0 ? (
+                                    borders?.map(function (bor, i) {
+                                        return <Link key={i} to={`/${bor}`}><span>{bor}</span></Link>;
+                                    })
+                                ) : (
+                                    <p style={{ fontWeight: 'normal' }}>No Borders</p>
+                                )}
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <p><b>Currencies:</b> {e.currencies ? Object.values(e.currencies)[0].symbol : "No currency"}</p>
